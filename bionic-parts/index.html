@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "resources/css/stylesheet.css" rel = "stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    </head>
+    <body>       
+        <div class="header">
+            <div class="headerText">
+                <h1>BIONIC PARTS</h1> 
+            </div>
+        </div>
+
+        <div class="popup">
+            <form>
+                <p>Enter Text:</p>
+                <input type = "test"> 
+            </form>
+        </div>
+
+        <button class = "button AddASM" onclick="addAssembly(['a', 'b', 'c', 'd', 'e'])">Add Assembly</button>
+        <button class = "button AddPart">Add Part</button>
+
+        <div style = "overflow: auto;"  class="table">
+            <table id = "table">
+                <tr>
+                    <tr> <th><div>Part Number</div>
+                        <th><div>Type</div>
+                        <th><div>Name</div>
+                        <th><div>Parent</div> 
+                        <th><div>Status</div> 
+                        </th>
+                </tr>
+            </table>
+        </div>
+
+        <script src = "resources/js/main.js"></script>
+    </body>
+</html>
