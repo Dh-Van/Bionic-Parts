@@ -1,0 +1,116 @@
+*{
+    font-family: 'Russo One', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+}
+
+html{
+    min-width: 100vh;
+    background-color: #c4c4c7;
+}
+
+head, body{
+    min-width: 100vh;
+}
+
+.header{
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: #154733;
+    color: white;
+
+    font-size: 100%;
+}
+
+.headerText{
+    position: absolute;
+    top: 7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.button {
+    background-color: #4CAF50;
+    color: #000000;
+    border: #154733;
+    border-radius: 12px;
+
+    transition-duration: 0.4s;
+    padding: 15px 32px;
+    display: inline-block;
+
+    text-align: center;
+    font-size: 16px;
+}
+
+.AddPart{
+    position: absolute;
+    top: 19.375%;
+    right: 20%;
+}
+
+.AddASM{
+    position: absolute;
+    top: 19.375%;
+    right: 2.5%;
+}
+
+.button:hover{
+    background-color: #c5edc7;
+}
+
+.table{
+    position: absolute;
+    top: 57.5%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    
+    height: 350px;
+    overflow: hidden;
+}
+
+table {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    /* margin-left: -50%; */
+    margin-right: auto;
+
+    background: #4CAF50;
+    transition: 0.4s;   
+    border-collapse: collapse;
+    width: 100%;
+
+    text-align: center;
+}
+
+table tbody tr {
+    transition: 0.4s;
+}
+
+
+th, td{
+    padding: 8px;
+    transition-duration: 0.4s;   
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    /* Set this width through js based on the num. of columns */
+    width: 20%;
+
+}
+
+
+
+tr:hover{
+    background-color: #c5edc7;
+}
+
+  

@@ -1,5 +1,6 @@
 const table = window.document.getElementById("table");
 
+
 // function createArray(length) {
 //     var arr = new Array(length || 0),
 //         i = length;
