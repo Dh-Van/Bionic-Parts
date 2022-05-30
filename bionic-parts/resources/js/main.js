@@ -1,7 +1,18 @@
 const table = window.document.getElementById("table");
-const json = JSON.stringify('/data.json');
 
-console.log(json);
+fetch('data.json')
+  .then((response) => {
+    return response.json()
+  })
+  .then((data) => {
+    // Work with JSON data here
+    console.log(data)
+  })
+  .catch((err) => {
+    // Do something for an error here
+  })
+
+// console.log(json)
 
 function createArray(length) {
     var arr = new Array(length || 0),
