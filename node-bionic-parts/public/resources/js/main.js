@@ -1,7 +1,34 @@
+
 const table = window.document.getElementById("table");
 
-// const jsonData = [data.c1, data.c2, data.c3, data.c4, data.c5];
-var dataMatrix = [[], [], [], [], []];
+async function addJSONdata(){
+    var dataArray = [[], [], [], [], []];
+
+    fetch('/json/get')
+        .then(response => response.json())
+        .then(data => {
+            dataArray[0] = data.c1;
+            dataArray[1] = data.c2;
+            dataArray[2] = data.c3;
+            dataArray[3] = data.c4;
+            dataArray[4] = data.c5;
+
+            console.log(`dataArray: ${dataArray}, dataLength: ${dataArray[0].length}`);
+            
+            for(i = 0; i < dataArray[0].length; i++){
+                var tempArray = [];
+                console.log("In here");
+                for(j = 0; j < 5; j++){
+                    console.log(`dataArraySpecific: ${dataArray[j][i]}`);
+                    tempArray[j] = dataArray[j][i];
+                }
+                console.log(tempArray)
+                addAssembly(tempArray, false);
+            }
+        });
+}
+
+addJSONdata();
 
 // Example POST method implementation:
 async function postData(url = '', data = {}) {
@@ -29,8 +56,6 @@ async function postData(url = '', data = {}) {
 // }
 
 async function addAssembly(dataArray, push){
-    // await postData('/part/add', data);
-
 
     var row = table.insertRow(-1);
     var partNumberCell = row.insertCell(0);
