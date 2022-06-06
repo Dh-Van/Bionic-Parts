@@ -1,20 +1,23 @@
 const table = window.document.getElementById("table");
 
-// function createArray(length) {
-//     var arr = new Array(length || 0),
-//         i = length;
-
-//     if (arguments.length > 1) {
-//         var args = Array.prototype.slice.call(arguments, 1);
-//         while(i--) arr[length-1 - i] = createArray.apply(this, args);
-//     }
-
-//     return arr;
-// }
 const jsonData = [data.c1, data.c2, data.c3, data.c4, data.c5];
 var dataMatrix = [[], [], [], [], []];
-// dataMatrix.push(jsonData);
 
+// Example POST method implementation:
+async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }, 
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
 
 for(i = 0; i < jsonData[0].length; i++){
     var dataArray = [];
@@ -25,34 +28,32 @@ for(i = 0; i < jsonData[0].length; i++){
     addAssembly(dataArray, false);
 }
 
-function addAssembly(dataArray, push){
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/server", true);
+async function addAssembly(dataArray, push){
+    // await postData('/part/add', data);
 
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
 
-    xhr.send(`{"test":"a"}`);
+    var row = table.insertRow(-1);
+    var partNumberCell = row.insertCell(0);
+    var typeCell = row.insertCell(1);
+    var nameCell = row.insertCell(2);
+    var parentCell = row.insertCell(3);
+    var statusCell = row.insertCell(4);
 
-    // var row = table.insertRow(-1);
-    // var partNumberCell = row.insertCell(0);
-    // var typeCell = row.insertCell(1);
-    // var nameCell = row.insertCell(2);
-    // var parentCell = row.insertCell(3);
-    // var statusCell = row.insertCell(4);
+    partNumberCell.innerHTML = dataArray[0];
+    typeCell.innerHTML = dataArray[1];
+    nameCell.innerHTML = dataArray[2];
+    parentCell.innerHTML = dataArray[3];
+    statusCell.innerHTML = dataArray[4]; 
 
-    // partNumberCell.innerHTML = dataArray[0];
-    // typeCell.innerHTML = dataArray[1];
-    // nameCell.innerHTML = dataArray[2];
-    // parentCell.innerHTML = dataArray[3];
-    // statusCell.innerHTML = dataArray[4]; 
-
-    // if(push){
-    //     // Adds data to the data matrix
-    //     data.c1.push(partNumberCell.innerHTML);
-    //     data.c2.push(typeCell.innerHTML);
-    //     data.c3.push(nameCell.innerHTML);
-    //     data.c4.push(parentCell.innerHTML);
-    //     data.c5.push(statusCell.innerHTML)
-    // }
+    if(push){
+        var tempJSON = {
+            "c1": dataArray[0],
+            "c2": dataArray[1],
+            "c3": dataArray[2],
+            "c4": dataArray[3],
+            "c5": dataArray[4],
+        }
+        await postData("/part/add", tempJSON);
+    }
 
 }

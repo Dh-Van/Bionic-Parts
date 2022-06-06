@@ -9,15 +9,16 @@ app.use(bodyParser.json())
 
 
 app.listen(port, function () {
-console.log('We are listening on port ' + port)
+    console.log('We are listening on port ' + port)
 })
 
-app.use(express.static('public'));
+    app.use(express.static('public'));
 
 
-app.post('/server', function (req, res) {
-console.log(req.body);
-res.send("test")
-return res.end('done')
+app.post('/part/add', function (req, res) {
+    console.log(req.body);
 })
 
+app.get('/json/get', function(req, res){
+    
+})
