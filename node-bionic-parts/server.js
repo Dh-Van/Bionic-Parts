@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const app = express()
 
-var port = 8080
+const port = 8080
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -15,9 +15,10 @@ app.listen(port, function () {
     console.log('We are listening on port ' + port)
 })
 
-    app.use(express.static('public'));
+// Renders the static code in the public folder
+app.use(express.static('public'));
 
-
+// Adds the data to the data.json file, when called by the frontent
 app.post('/part/add', function (req, res) {
     var data = req.body;
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');
@@ -31,6 +32,7 @@ app.post('/part/add', function (req, res) {
     fs.writeFileSync('public/resources/data/data.json', JSON.stringify(json));
 })
 
+// Returns the data.json file when requested. 
 app.get('/json/get', function(req, res){
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');
     var json = JSON.parse(jsonRaw);

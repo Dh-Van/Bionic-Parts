@@ -1,28 +1,32 @@
-
+// The HTML table that will display information
 const table = window.document.getElementById("table");
 
+/**
+ * Function that will load the json data present in the data.json file by calling the addAssembly method
+ */
 async function addJSONdata(){
+    // Data Array to store all of the data [by column] that is in the data.json file
     var dataArray = [[], [], [], [], []];
 
+    // Will request the backend for the json
     fetch('/json/get')
         .then(response => response.json())
         .then(data => {
+            // Stores the data [by column] into the dataArray  object
             dataArray[0] = data.c1;
             dataArray[1] = data.c2;
             dataArray[2] = data.c3;
             dataArray[3] = data.c4;
             dataArray[4] = data.c5;
-
-            console.log(`dataArray: ${dataArray}, dataLength: ${dataArray[0].length}`);
             
+            // Turns the data which is stored by column, into data stored by row so that the addAssembly method works
             for(i = 0; i < dataArray[0].length; i++){
+                // Array to store the data by row
                 var tempArray = [];
-                console.log("In here");
+                // Loops through each column, and gets the same index, essentially getting the first row
                 for(j = 0; j < 5; j++){
-                    console.log(`dataArraySpecific: ${dataArray[j][i]}`);
                     tempArray[j] = dataArray[j][i];
                 }
-                console.log(tempArray)
                 addAssembly(tempArray, false);
             }
         });
@@ -30,33 +34,36 @@ async function addJSONdata(){
 
 addJSONdata();
 
-// Example POST method implementation:
+/**
+ * 
+ * @param url: The url to post the json to
+ * @param data: The json to post
+ */
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
+      method: 'POST',
+      cache: 'no-cache',
+      credentials: 'same-origin', 
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+        
       }, 
-      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(data) 
     });
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-// for(i = 0; i < jsonData[0].length; i++){
-//     var dataArray = [];
-//     for(j = 0; j < 5; j++){
-//         dataArray[j] = jsonData[j][i];
-//     }
-//     console.log(dataArray)
-//     addAssembly(dataArray, false);
-// }
 
+
+  /**
+   * Function that will add an assembly onto the html table, and depending on the push boolean, add the data in dataArray to the data.json file
+   * @param {Array<number>} dataArray: The array by 
+   * @param {Boolean} push 
+   */
 async function addAssembly(dataArray, push){
 
+    // Inserts the row to the end of the table, and adds cells in the right  order
     var row = table.insertRow(-1);
     var partNumberCell = row.insertCell(0);
     var typeCell = row.insertCell(1);
@@ -64,13 +71,16 @@ async function addAssembly(dataArray, push){
     var parentCell = row.insertCell(3);
     var statusCell = row.insertCell(4);
 
+    // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];
     typeCell.innerHTML = dataArray[1];
     nameCell.innerHTML = dataArray[2];
     parentCell.innerHTML = dataArray[3];
     statusCell.innerHTML = dataArray[4]; 
 
+    // If the method was called with the intent to push data to the data.json file
     if(push){
+        // Creates a json file with the respective dataArray index
         var tempJSON = {
             "c1": dataArray[0],
             "c2": dataArray[1],
@@ -78,6 +88,7 @@ async function addAssembly(dataArray, push){
             "c4": dataArray[3],
             "c5": dataArray[4],
         }
+        // Posts the json file to the backend
         await postData("/part/add", tempJSON);
     }
 
