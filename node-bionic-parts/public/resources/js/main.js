@@ -1,6 +1,6 @@
 const table = window.document.getElementById("table");
 
-const jsonData = [data.c1, data.c2, data.c3, data.c4, data.c5];
+// const jsonData = [data.c1, data.c2, data.c3, data.c4, data.c5];
 var dataMatrix = [[], [], [], [], []];
 
 // Example POST method implementation:
@@ -19,14 +19,14 @@ async function postData(url = '', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-for(i = 0; i < jsonData[0].length; i++){
-    var dataArray = [];
-    for(j = 0; j < 5; j++){
-        dataArray[j] = jsonData[j][i];
-    }
-    console.log(dataArray)
-    addAssembly(dataArray, false);
-}
+// for(i = 0; i < jsonData[0].length; i++){
+//     var dataArray = [];
+//     for(j = 0; j < 5; j++){
+//         dataArray[j] = jsonData[j][i];
+//     }
+//     console.log(dataArray)
+//     addAssembly(dataArray, false);
+// }
 
 async function addAssembly(dataArray, push){
     // await postData('/part/add', data);
