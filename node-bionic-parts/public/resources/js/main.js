@@ -34,25 +34,25 @@ async function addJSONdata(){
 
 addJSONdata();
 
-/**
- * 
- * @param url: The url to post the json to
- * @param data: The json to post
- */
-async function postData(url = '', data = {}) {
-    const response = await fetch(url, {
-      method: 'POST',
-      cache: 'no-cache',
-      credentials: 'same-origin', 
-      headers: {
-        'Content-Type': 'application/json'
-        
-      }, 
-      referrerPolicy: 'no-referrer', 
-      body: JSON.stringify(data) 
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-  }
+    /**
+     * 
+     * @param url: The url to post the json to
+     * @param data: The json to post
+     */
+    async function postData(url = '', data = {}) {
+        const response = await fetch(url, {
+            method: 'POST',
+            cache: 'no-cache',
+            credentials: 'same-origin', 
+            headers: {
+            'Content-Type': 'application/json'
+            
+            }, 
+            referrerPolicy: 'no-referrer', 
+            body: JSON.stringify(data) 
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
 
 
 
