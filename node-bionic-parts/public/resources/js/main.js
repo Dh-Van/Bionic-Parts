@@ -1,10 +1,14 @@
 // The HTML table that will display information
 const table = window.document.getElementById("table");
 
+let isVisible = false;
+document.getElementById("popup").addEventListener('submit', function(e){e.preventDefault(); addData();}, false);
+
+
 /**
  * Function that will load the json data present in the data.json file by calling the addAssembly method
  */
-async function addJSONdata(){
+ async function addJSONdata(){
     // Data Array to store all of the data [by column] that is in the data.json file
     var dataArray = [[], [], [], [], []];
 
@@ -21,6 +25,7 @@ async function addJSONdata(){
             
             // Turns the data which is stored by column, into data stored by row so that the addAssembly method works
             for(i = 0; i < dataArray[0].length; i++){
+                console.log("this can't be breaking everything right?")
                 // Array to store the data by row
                 var tempArray = [];
                 // Loops through each column, and gets the same index, essentially getting the first row
@@ -33,6 +38,35 @@ async function addJSONdata(){
 }
 
 addJSONdata();
+
+function popped(){
+    console.log("in met")
+    const popup = document.getElementById("popup");
+    if(!isVisible) {popup.style.visibility = "visible";}
+    else if(isVisible) popup.style.visibility = "hidden";
+
+    isVisible = !isVisible
+
+    addData();
+}
+
+function addData(){
+    var dataArray = [[], [], [], [], []];
+    dataArray[0] = document.getElementById("c1").value;
+    dataArray[1] = document.getElementById("c2").value;
+    dataArray[2] = document.getElementById("c3").value;
+    dataArray[3] = document.getElementById("c4").value;
+    dataArray[4] = document.getElementById("c5").value;
+
+    document.getElementById("c1").value = "";
+    document.getElementById("c2").value = "";
+    document.getElementById("c3").value = "";
+    document.getElementById("c4").value = "";
+    document.getElementById("c5").value = "";
+
+    if(dataArray[0].length > 0)
+        addAssembly(dataArray, true);
+}
 
     /**
      * 

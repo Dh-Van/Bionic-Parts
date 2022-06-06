@@ -60,6 +60,22 @@ head, body{
     right: 2.5%;
 }
 
+.popup{
+
+    visibility: hidden;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    width: 200px;
+    height: 200px;
+
+    background-color: #4CAF50;
+}
+
 .button:hover{
     background-color: #c5edc7;
 }
@@ -106,8 +122,6 @@ th, td{
     width: 20%;
 
 }
-
-
 
 tr:hover{
     background-color: #c5edc7;

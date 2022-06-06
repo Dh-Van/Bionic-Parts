@@ -1,12 +1,8 @@
 var isVisible = false;
 var firstInput = true;
 
-// document.getElementById("window").addEventListener('submit', function(e){e.preventDefault(); replaceText();}, false);
+document.getElementById("window").addEventListener('submit', function(e){e.preventDefault(); replaceText();}, false);
 
-
-
-
-;
 {
 function popped(){
     let window = document.getElementById("window");

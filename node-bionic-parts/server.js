@@ -36,6 +36,5 @@ app.post('/part/add', function (req, res) {
 app.get('/json/get', function(req, res){
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');
     var json = JSON.parse(jsonRaw);
-    console.log(json);
     res.send(json);
 })

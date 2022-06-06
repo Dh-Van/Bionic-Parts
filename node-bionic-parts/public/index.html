@@ -13,15 +13,21 @@
             </div>
         </div>
 
-        <div class="popup">
-            <form>
-                <p>Enter Text:</p>
-                <input type = "test"> 
-            </form>
+        <div class="popup" id = "popup">
+            <div class="content">
+                <form id = "form" method="GET">
+                    <p>Please enter the data below:</p>
+                    <input id = "c1" type="text" value="" required = "required">
+                    <input id = "c2" type="text" value="" required = "required">
+                    <input id = "c3" type="text" value="" required = "required">
+                    <input id = "c4" type="text" value="">
+                    <input id = "c5" type="text" value="" required = "required">
+                </form">
+            </div>
         </div>
 
-        <button class = "button AddASM" onclick="addAssembly(['a', 'b', 'c', 'd', 'e'], true)">Add Assembly</button>
-        <button class = "button AddPart">Add Part</button>
+        <button class = "button AddASM" onclick="popped()">Add Assembly</button>
+        <button class = "button AddPart" onclick = "popped()">Add Part</button>
 
         <div style = "overflow: auto;"  class="table">
             <table id = "table">
