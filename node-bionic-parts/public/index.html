@@ -15,28 +15,30 @@
 
         <div id="overlay">
             <div class="popup" id = "popup">
-                <button class = "button Submit" onclick="formSubmit()">Submit</button>
+                <button id = "Submit" class = "button Submit" onclick="formSubmit()">Submit</button>
                 <button class = "button Cancel" onclick = "formCancel()">Cancel</button>
                 <p id = "formText">Please enter the data below:</p>
                 <form id = "form" method="GET">
-                    <label>Part Number: </label><input id = "c1" type="text" value="" required = "required">
+                    <label>Part Number: </label><input id = "c1" type="text" value="" required = "required" placeholder="4909-22-100-1000">
                     
-                    <label>Type: </label><select id = "c2" name = "Type" required = "required">
+                    <label>Type: </label><select id = "c2" name = "Type" required = "required" placeholder="Part">
+                        <option value = ""></option>
                         <option value = "Assembly">Assembly</option>
                         <option value = "Part">Part</option>
-                    </select> 
+                    </select>
                     
-                    <label>Name: </label><input id = "c3" type="text" value="" required = "required">
+                    <label>Name: </label><input id = "c3" type="text" value="" required = "required" placeholder="Left Static Hook">
                     
-                    <label>Parent: </label><input id = "c4" type="text" value="">
+                    <label>Parent: </label><input id = "c4" type="text" value="" required = "required" placeholder="Climber">
             
-                    <label>Status: </label><select id = "c5" type="text" value="" required = "required">
+                    <label>Status: </label><select id = "c5" type="text" value="" required = "required" placeholder = "Done">
+                        <option value = ""></option>
                         <option value = "CAD in progress">CAD in progress</option>
                         <option value = "CAM in progress">CAM in progress</option> 
                         <option value = "Maunfacutring in progress">Maunfacutring in progress</option>
                         <option value = "Assembly">Assembly</option>
                         <option value = "Done">Done</option>
-                    </select>
+                    </select> 
                 </form>
             </div>    
         </div>

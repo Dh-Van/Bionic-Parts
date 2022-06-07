@@ -48,8 +48,19 @@ function formCancel(){
 }
 
 function formSubmit(){
-    addData();
-    formCancel();
+    if(
+        document.getElementById("c1").value.length < 1 ||
+        document.getElementById("c2").value.length < 1 ||
+        document.getElementById("c3").value.length < 1 ||
+        document.getElementById("c4").value.length < 1 ||
+        document.getElementById("c5").value.length < 1
+        ){
+            alert("Fill in the required fields");
+    } else {
+        document.getElementById("Submit").disabled = false;
+        addData();
+        formCancel();
+    }
 }
 
 function popped(){
@@ -57,8 +68,6 @@ function popped(){
     else if(isVisible) {popup.style.display = "none"; overlay.style.display = "none";}
 
     isVisible = !isVisible
-
-    addData();
 }
 
 function addData(){
