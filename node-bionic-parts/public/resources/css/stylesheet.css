@@ -113,9 +113,10 @@ head, body{
     /* background-color: #4CAF50; */
 }
 
-input[type=text], select{
+input, select{
 
     font-size: 15px;
+    background-color: rgba(255, 0, 0, .5);
 
     position: relative;
     left: 50%;
@@ -139,14 +140,6 @@ input[type=text], select{
   
 input[type=text]:focus, select:focus {
     border: 3px solid #4CAF50;
-}
-
-input:invalid, select:invalid{
-    background-color: rgba(255, 0, 0, .5);
-}
-
-input:valid, select:valid{
-    background-color: #4CAF50;
 }
 
 label{
