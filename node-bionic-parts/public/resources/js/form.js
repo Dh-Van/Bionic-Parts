@@ -33,8 +33,13 @@ function formCancel(){
 
 function formSubmit(){
     if(
-
-        ){
+        c1.value.length < 1 ||
+        c2.value.length < 1 ||
+        c3.value.length < 1 ||
+        c4.value.length < 1 ||
+        c5.value.length < 1 ||
+        c2.value == "N/A" ||
+        c5.value == "N/A"){
             alert("Fill in the required fields");
     } else {
         document.getElementById("Submit").disabled = false;
