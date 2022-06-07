@@ -13,17 +13,37 @@
             </div>
         </div>
 
-        <div class="popup" id = "popup">
-            <div class="content">
+        <div id="overlay">
+            <div class="popup" id = "popup">
+                <p id = "formText">Please enter the data below:</p>
                 <form id = "form" method="GET">
-                    <p>Please enter the data below:</p>
-                    <input id = "c1" type="text" value="" required = "required">
-                    <input id = "c2" type="text" value="" required = "required">
-                    <input id = "c3" type="text" value="" required = "required">
-                    <input id = "c4" type="text" value="">
-                    <input id = "c5" type="text" value="" required = "required">
+                    
+                    <div class="labelDiv">
+                    <label>label: <input id = "c1" type="text" value="" required = "required"></label> 
+                    </div>
+
+                    
+                    <div class="labelDiv">
+                    <label>label: <input id = "c2" type="text" value="" required = "required"></label> 
+                    </div>
+
+                    
+                    <div class="labelDiv">
+                    <label>label: <input id = "c3" type="text" value="" required = "required"></label> 
+                    </div>
+
+                    
+                    <div class="labelDiv">
+                    <label>label: <input id = "c4" type="text" value=""></label> 
+                    </div>
+
+                    
+                    <div class="labelDiv">
+                    <label>label: <input id = "c5" type="text" value="" required = "required"></label> 
+                    </div>
+
                 </form">
-            </div>
+            </div>    
         </div>
 
         <button class = "button AddASM" onclick="popped()">Add Assembly</button>

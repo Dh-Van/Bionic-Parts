@@ -42,8 +42,9 @@ addJSONdata();
 function popped(){
     console.log("in met")
     const popup = document.getElementById("popup");
-    if(!isVisible) {popup.style.visibility = "visible";}
-    else if(isVisible) popup.style.visibility = "hidden";
+    const overlay = document.getElementById("overlay");
+    if(!isVisible) {popup.style.visibility = "visible"; overlay.style.visibility = "visible";}
+    else if(isVisible) {popup.style.visibility = "hidden"; overlay.style.visibility = "hidden";}
 
     isVisible = !isVisible
 
