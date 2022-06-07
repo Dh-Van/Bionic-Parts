@@ -53,9 +53,17 @@ function formSubmit(){
         document.getElementById("c2").value.length < 1 ||
         document.getElementById("c3").value.length < 1 ||
         document.getElementById("c4").value.length < 1 ||
-        document.getElementById("c5").value.length < 1
+        document.getElementById("c5").value.length < 1 ||
+        document.getElementById("c2").value == "N/A" ||
+        document.getElementById("c5").value == "N/A"
         ){
             alert("Fill in the required fields");
+            document.getElementById("c1").setCustomValidity("Invalid field");
+            document.getElementById("c2").setCustomValidity("Invalid field");
+            document.getElementById("c3").setCustomValidity("Invalid field");
+            document.getElementById("c4").setCustomValidity("Invalid field");
+            document.getElementById("c5").setCustomValidity("Invalid field");
+
     } else {
         document.getElementById("Submit").disabled = false;
         addData();
@@ -64,6 +72,12 @@ function formSubmit(){
 }
 
 function popped(){
+    document.getElementById("c1").setCustomValidity("Invalid field");
+    document.getElementById("c2").setCustomValidity("Invalid field");
+    document.getElementById("c3").setCustomValidity("Invalid field");
+    document.getElementById("c4").setCustomValidity("Invalid field");
+    document.getElementById("c5").setCustomValidity("Invalid field");
+    
     if(!isVisible) {popup.style.display = "initial"; overlay.style.display = "initial";}
     else if(isVisible) {popup.style.display = "none"; overlay.style.display = "none";}
 
