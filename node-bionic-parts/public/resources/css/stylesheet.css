@@ -48,13 +48,13 @@ head, body{
     font-size: 16px;
 }
 
-.AddPart{
+/* .AddPart{
     position: absolute;
     top: 19.375%;
     right: 20%;
-}
+} */
 
-.AddASM{
+.Add{
     position: absolute;
     top: 19.375%;
     right: 2.5%;
@@ -82,10 +82,11 @@ head, body{
 }
 
 #formText{
+    font-size: 20px;
     position: absolute;
     left: 50%;
-    top: 4%;
-    transform: translateX(-50%);
+    top: 6%;
+    transform: translate(-50%, -50%);
     color: white;
 
     z-index: 1000;
@@ -112,7 +113,9 @@ head, body{
     /* background-color: #4CAF50; */
 }
 
-input[type=text] {
+input[type=text], select{
+
+    font-size: 15px;
 
     position: relative;
     left: 50%;
@@ -128,10 +131,14 @@ input[type=text] {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-  }
-  
-input[type=text]:focus {
+}
+
+/* select:focus {
     border: 3px solid #555;
+} */
+  
+input[type=text]:focus, select:focus {
+    border: 3px solid #4CAF50;
 }
 
 label{

@@ -63,6 +63,7 @@ function popped(){
 
 function addData(){
     var dataArray = [[], [], [], [], []];
+
     dataArray[0] = document.getElementById("c1").value;
     dataArray[1] = document.getElementById("c2").value;
     dataArray[2] = document.getElementById("c3").value;

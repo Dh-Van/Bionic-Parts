@@ -21,19 +21,28 @@
                 <form id = "form" method="GET">
                     <label>Part Number: </label><input id = "c1" type="text" value="" required = "required">
                     
-                    <label>Type: </label><input id = "c2" type="text" value="" required = "required">
+                    <label>Type: </label><select id = "c2" name = "Type" required = "required">
+                        <option value = "Assembly">Assembly</option>
+                        <option value = "Part">Part</option>
+                    </select> 
                     
                     <label>Name: </label><input id = "c3" type="text" value="" required = "required">
                     
                     <label>Parent: </label><input id = "c4" type="text" value="">
             
-                    <label>Status: </label><input id = "c5" type="text" value="" required = "required">
+                    <label>Status: </label><select id = "c5" type="text" value="" required = "required">
+                        <option value = "CAD in progress">CAD in progress</option>
+                        <option value = "CAM in progress">CAM in progress</option> 
+                        <option value = "Maunfacutring in progress">Maunfacutring in progress</option>
+                        <option value = "Assembly">Assembly</option>
+                        <option value = "Done">Done</option>
+                    </select>
                 </form>
             </div>    
         </div>
 
-        <button class = "button AddASM" onclick="popped()">Add Assembly</button>
-        <button class = "button AddPart" onclick = "popped()">Add Part</button>
+        <button class = "button Add" onclick="popped()">Add</button>
+        <!-- <button class = "button AddPart" onclick = "popped(true)">Add Part</button> -->
 
         <div style = "overflow: auto;"  class="table">
             <table id = "table">
