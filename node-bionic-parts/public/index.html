@@ -1,10 +1,11 @@
     <!DOCTYPE html>
 <html>
     <head>
-        <link href = "resources/css/stylesheet.css" rel = "stylesheet"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href = "resources/css/stylesheet.css"/>
+        <!-- <link rel = "stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+        <link rel = "preconnect" href = "https://fonts.googleapis.com">
+        <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
     </head> 
     <body>       
         <div class="header">
@@ -17,6 +18,7 @@
             <div class="popup" id = "popup">
                 <button id = "Submit" class = "button Submit" onclick="formSubmit()">Submit</button>
                 <button class = "button Cancel" onclick = "formCancel()">Cancel</button>
+                <button id = "Clear" class = "button Clear" onclick = "formClear()">Clear</button>
                 <p id = "formText">Please enter the data below:</p>
                 <form id = "form" method="GET">
                     <label>Part Number: </label><input id = "c1" type="text" value="" required = "required" placeholder="4909-22-100-1000">

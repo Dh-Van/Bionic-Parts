@@ -25,10 +25,27 @@ c4.addEventListener("input", e => {c4.style.backgroundColor = LIGHT_GREEN; if(c4
 c5.addEventListener("input", e => {c5.style.backgroundColor = LIGHT_GREEN; if(c5.value.length < 1 || c5.value == "N/A") c5.style.backgroundColor = TRANSPARENT_RED;});
 }
 
+function setColor(color){
+    c1.style.backgroundColor = color;
+    c2.style.backgroundColor = color;
+    c3.style.backgroundColor = color;
+    c4.style.backgroundColor = color;
+    c5.style.backgroundColor = color;
+}
+
 function formCancel(){
-    popup.style.diaplay = "none"; 
-    overlay.style.display = "none";
     isVisible = false;
+    fadeOut().then(removeForm());
+}
+
+function fadeOut(){
+    overlay.style.animation = "fadeOut 0.4s forwards";
+    popup.style.animation = "fadeOut 0.4s forwards";
+}
+
+function removeForm(){
+    popup.style.display = "none"; 
+    overlay.style.display = "none";
 }
 
 function formSubmit(){
@@ -42,15 +59,24 @@ function formSubmit(){
         c5.value == "N/A"){
             alert("Fill in the required fields");
     } else {
-        document.getElementById("Submit").disabled = false;
         addData();
         formCancel();
     }
 }
 
+function formClear(){
+    c1.value = "";
+    c2.value = "N/A";
+    c3.value = "";
+    c4.value = "";
+    c5.value = "N/A";
+    setColor(TRANSPARENT_RED);
+}
+
 function popped(){
-    if(!isVisible) {popup.style.display = "initial"; overlay.style.display = "initial";}
-    else if(isVisible) {popup.style.display = "none"; overlay.style.display = "none";}
+    setColor(TRANSPARENT_RED);
+    if(!isVisible) {popup.style.animation = "fadeIn 0.4s both"; overlay.style.animation = "fadeIn 0.4s both";};
+    // else if(isVisible) {popup.style.transition = "visibility 0s 2s, opacity 0.4s linear";} //popup.style.display = "none"; overlay.style.display = "none";
 
     isVisible = !isVisible
 }
