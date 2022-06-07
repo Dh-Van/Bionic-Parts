@@ -5,7 +5,11 @@ const overlay = document.getElementById("overlay");
 
 let isVisible = false;
 document.getElementById("popup").addEventListener('submit', function(e){e.preventDefault(); addData();}, false);
-
+document.getElementById("c1").addEventListener("input", e => document.getElementById("c1").style.backgroundColor = "#c5edc7");
+document.getElementById("c2").addEventListener("input", e => document.getElementById("c2").style.backgroundColor = "#c5edc7");
+document.getElementById("c3").addEventListener("input", e => document.getElementById("c3").style.backgroundColor = "#c5edc7");
+document.getElementById("c4").addEventListener("input", e => document.getElementById("c4").style.backgroundColor = "#c5edc7");
+document.getElementById("c5").addEventListener("input", e => document.getElementById("c5").style.backgroundColor = "#c5edc7");
 
 /**
  * Function that will load the json data present in the data.json file by calling the addAssembly method
