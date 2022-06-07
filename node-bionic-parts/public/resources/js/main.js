@@ -1,5 +1,7 @@
 // The HTML table that will display information
 const table = window.document.getElementById("table");
+const popup = document.getElementById("popup");
+const overlay = document.getElementById("overlay");
 
 let isVisible = false;
 document.getElementById("popup").addEventListener('submit', function(e){e.preventDefault(); addData();}, false);
@@ -39,12 +41,20 @@ document.getElementById("popup").addEventListener('submit', function(e){e.preven
 
 addJSONdata();
 
+function formCancel(){
+    popup.style.diaplay = "none"; 
+    overlay.style.display = "none";
+    isVisible = false;
+}
+
+function formSubmit(){
+    addData();
+    formCancel();
+}
+
 function popped(){
-    console.log("in met")
-    const popup = document.getElementById("popup");
-    const overlay = document.getElementById("overlay");
-    if(!isVisible) {popup.style.visibility = "visible"; overlay.style.visibility = "visible";}
-    else if(isVisible) {popup.style.visibility = "hidden"; overlay.style.visibility = "hidden";}
+    if(!isVisible) {popup.style.display = "initial"; overlay.style.display = "initial";}
+    else if(isVisible) {popup.style.display = "none"; overlay.style.display = "none";}
 
     isVisible = !isVisible
 

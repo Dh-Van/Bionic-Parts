@@ -62,7 +62,8 @@ head, body{
 
 #overlay{
 
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden; */
 
     position: absolute;
     width: 100%;
@@ -85,14 +86,15 @@ head, body{
     left: 50%;
     top: 4%;
     transform: translateX(-50%);
-    color: antiquewhite;
+    color: white;
 
-    z-index: 1001;
+    z-index: 1000;
 }
 
 .popup{
 
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden; */
 
     position: absolute;
     top: 50%;
@@ -104,6 +106,9 @@ head, body{
     height: 75%;
 
     background-color: #154733;
+    border: #154733;
+    border-radius: 12px;
+
     /* background-color: #4CAF50; */
 }
 
@@ -119,6 +124,7 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
     border: 3px solid #ccc;
+    border-radius: 8px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
@@ -129,13 +135,32 @@ input[type=text]:focus {
 }
 
 label{
-    display: inline-block;
+
     text-align: right;
-    width: 150px;
+    position: absolute;
+    left: -15%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    padding: 12px 20px;
+    margin: 8px 0;
+
+    color: white;
+
 }
 
-#labelDiv{
-    margin-bottom: 15px;
+.Submit{
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+    transform: translateX(-50%);
+}
+
+.Cancel{
+    position: absolute;
+    bottom: 5%;
+    left: 65%;
+    transform: translateX(-50%); 
 }
 
 .button:hover{
