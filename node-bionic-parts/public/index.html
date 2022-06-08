@@ -1,54 +1,24 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel = "stylesheet" href = "resources/css/stylesheet.css"/>
-        <!-- <link rel = "stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
         <link rel = "preconnect" href = "https://fonts.googleapis.com">
         <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
         <link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
     </head> 
     <body>       
+        <!-- Banner at the top of the screen -->
         <div class="header">
             <div class="headerText">
                 <h1>BIONIC PARTS</h1> 
             </div>
         </div>
 
-        <div id="overlay">
-            <div class="popup" id = "popup">
-                <button id = "Submit" class = "button Submit" onclick="formSubmit()">Submit</button>
-                <button class = "button Cancel" onclick = "formCancel()">Cancel</button>
-                <button id = "Clear" class = "button Clear" onclick = "formClear()">Clear</button>
-                <p id = "formText">Please enter the data below:</p>
-                <form id = "form" method="GET">
-                    <label>Part Number: </label><input id = "c1" type="text" value="" required = "required" placeholder="4909-22-100-1000">
-                    
-                    <label>Type: </label><select id = "c2" name = "Type" required = "required" placeholder="Part">
-                        <option value = "N/A">N/A</option>
-                        <option value = "Assembly">Assembly</option>
-                        <option value = "Part">Part</option>
-                    </select>
-                    
-                    <label>Name: </label><input id = "c3" type="text" value="" required = "required" placeholder="Left Static Hook">
-                    
-                    <label>Parent: </label><input id = "c4" type="text" value="" required = "required" placeholder="Climber">
-            
-                    <label>Status: </label><select id = "c5" type="text" value="" required = "required" placeholder = "Done">
-                        <option value = "N/A">N/A</option>
-                        <option value = "CAD in progress">CAD in progress</option>
-                        <option value = "CAM in progress">CAM in progress</option> 
-                        <option value = "Maunfacutring in progress">Maunfacutring in progress</option>
-                        <option value = "Assembly">Assembly</option>
-                        <option value = "Done">Done</option>
-                    </select> 
-                </form>
-            </div>    
-        </div>
+        <!-- Button to ADD an assembly or part to the table, this will call the displatForm() method in form.js -->
+        <button id = "Add" class = "button" onclick="displayForm()">Add</button>
 
-        <button class = "button Add" onclick="popped()">Add</button>
-        <!-- <button class = "button AddPart" onclick = "popped(true)">Add Part</button> -->
-
-        <div style = "overflow: auto;"  class="table">
+        <!-- Table which will display all of the different types of data, one part or assembly per row -->
+        <div id="tableContainer">
             <table id = "table">
                 <tr>
                     <tr> <th><div>Part Number</div>
@@ -59,6 +29,53 @@
                         </th>
                 </tr>
             </table>
+        </div>
+
+        <!-- Overlay which will cover the whole screen, and make the background a transparent black -->
+        <div id="overlay">
+            <!-- Popup content which will contain the form to input data into the form -->
+            <div id = "popup">
+                <!-- Text that informs the user what to do -->
+                <p id = "formText">Please enter the data below:</p>
+                <!-- Form in which the user will enter the data to be added to the table -->
+                <form id = "form" method="GET">
+                    <!-- Part number input and label, text input-->
+                    <label>Part Number: </label>
+                    <input id = "c1" type="text" value="" required = "required" placeholder="4909-22-100-1000">
+                    
+                    <!-- Type input and label, select input -->
+                    <label>Type: </label>
+                    <select id = "c2" name = "Type" required = "required" placeholder="Part">
+                        <option value = "N/A">N/A</option>
+                        <option value = "Assembly">Assembly</option>
+                        <option value = "Part">Part</option>
+                    </select>
+                    
+                    <!-- Name input and label, text input -->
+                    <label>Name: </label>
+                    <input id = "c3" type="text" value="" required = "required" placeholder="Left Static Hook">
+                    
+                    <!-- Parent input and label, currently text input [TODO make select input] -->
+                    <label>Parent: </label><input id = "c4" type="text" value="" required = "required" placeholder="Climber">
+            
+                    <!-- Status input and label, select input -->
+                    <label>Status: </label>
+                    <select id = "c5" type="text" value="" required = "required" placeholder = "Done">
+                        <option value = "N/A">N/A</option>
+                        <option value = "CAD in progress">CAD in progress</option>
+                        <option value = "CAM in progress">CAM in progress</option> 
+                        <option value = "Maunfacutring in progress">Maunfacutring in progress</option>
+                        <option value = "Assembly">Assembly</option>
+                        <option value = "Done">Done</option>
+                    </select> 
+                    <!-- Button to submit the form, will call the formSubmit() function in form.js -->
+                    <button id = "Submit" class = "button" onclick="formSubmit()">Submit</button>
+                    <!-- Button to cancel entry to the form, will call the formCancel() function in form.js -->
+                    <button id = "Cancel" class = "button" onclick = "formCancel()">Cancel</button>
+                    <!-- Button to clear ALL form fields, will call the formClear() functio in form.js -->
+                    <button id = "Clear" class = "button" onclick = "formClear()">Clear</button>
+                </form>
+            </div>    
         </div>
 
         <script type = "text/javascript" language = "javascript" src = "resources/js/main.js"></script>

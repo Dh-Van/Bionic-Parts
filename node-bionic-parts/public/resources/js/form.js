@@ -13,9 +13,6 @@ const c3 = document.getElementById("c3")
 const c4 = document.getElementById("c4")
 const c5 = document.getElementById("c5")
 
-// Visibility of the popup content
-let isVisible = false;
-
 // EventListeners to change the color of the form fields depending on if it is a valid input or not
 {
 c1.addEventListener("input", e => {c1.style.backgroundColor = LIGHT_GREEN; if(c1.value.length < 1) c1.style.backgroundColor = TRANSPARENT_RED;});
@@ -25,6 +22,10 @@ c4.addEventListener("input", e => {c4.style.backgroundColor = LIGHT_GREEN; if(c4
 c5.addEventListener("input", e => {c5.style.backgroundColor = LIGHT_GREEN; if(c5.value.length < 1 || c5.value == "N/A") c5.style.backgroundColor = TRANSPARENT_RED;});
 }
 
+/**
+ * Sets the background color of ALL the form fields to the input color
+ * @param {color} color 
+ */
 function setColor(color){
     c1.style.backgroundColor = color;
     c2.style.backgroundColor = color;
@@ -33,47 +34,62 @@ function setColor(color){
     c5.style.backgroundColor = color;
 }
 
-function formCancel(){
-    isVisible = false;
-    fadeOut().then(removeForm());
-}
-
+/**
+ * Makes the Overlay and Popup content fade IN
+ */
 function fadeOut(){
     overlay.style.animation = "fadeOut 0.4s forwards";
     popup.style.animation = "fadeOut 0.4s forwards";
 }
 
+/**
+ * Makes the Overlay and Popup content fade OUT
+ */
 function fadeIn(){
     overlay.style.animation = "fadeIn 0.4s forwards";
     popup.style.animation = "fadeIn 0.4s forwards";
 }
 
-function removeForm(){
+/**
+ * HIDES the form on the screen
+ */
+function hideForm(){
     popup.style.display = "none"; 
     overlay.style.display = "none";
 }
 
+/**
+ * SHOWS the form on the screen
+ */
 function showForm(){
     popup.style.display = "block"; 
     overlay.style.display = "block";
 }
 
+/**
+ * Makes the form fade in and sets the color of all the form fields to TRANSPARENT_RED
+ */
+function displayForm(){
+    setColor(TRANSPARENT_RED);
+    fadeIn();
+    showForm();
+}
+
+/**
+ * Submits the form only if the form fields are valid
+ */
 function formSubmit(){
-    if(
-        c1.value.length < 1 ||
-        c2.value.length < 1 ||
-        c3.value.length < 1 ||
-        c4.value.length < 1 ||
-        c5.value.length < 1 ||
-        c2.value == "N/A" ||
-        c5.value == "N/A"){
+    if(!validateForm())
             alert("Fill in the required fields");
-    } else {
+    else {
         addData();
         formCancel();
     }
 }
 
+/**
+ * Clears ALL the values of the form fields and sets the background color to TRANSPARENT_RED
+ */
 function formClear(){
     c1.value = "";
     c2.value = "N/A";
@@ -83,11 +99,22 @@ function formClear(){
     setColor(TRANSPARENT_RED);
 }
 
-function popped(){
-    setColor(TRANSPARENT_RED);
-    fadeIn();
-    showForm();
-
-    isVisible = !isVisible
+/**
+ * Makes the form fade out, and then stops showing the form
+ */
+function formCancel(){
+    fadeOut().then(hideForm());
 }
 
+/**
+ * Returns if the form is valid or not
+ */
+function validateForm(){
+    return  !(c1.value.length < 1 ||
+            c2.value.length < 1 ||
+            c3.value.length < 1 ||
+            c4.value.length < 1 ||
+            c5.value.length < 1 ||
+            c2.value == "N/A" ||
+            c5.value == "N/A");
+}
