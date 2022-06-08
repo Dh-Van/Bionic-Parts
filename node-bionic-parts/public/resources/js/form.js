@@ -3,6 +3,9 @@ const popup = document.getElementById("popup");
 // The background when the popup is displayed
 const overlay = document.getElementById("overlay");
 
+let editable = false;
+let rowNum = -1;
+
 const LIGHT_GREEN = "#c5edc7" ;
 const TRANSPARENT_RED = "rgba(255, 0, 0, .5)"
 
@@ -83,8 +86,14 @@ function formSubmit(){
     if(!validateForm())
             alert("Fill in the required fields");
     else {
+        if(editable){
+            editable = false;
+            addAssembly(rowNum);
+            rowNum = -1;
+        } else {
         addData();
         formCancel();
+        }
     }
 }
 
@@ -98,6 +107,21 @@ function formClear(){
     c4.value = "";
     c5.value = "N/A";
     setColor(TRANSPARENT_RED);
+}
+
+function formSet(c1, c2, c3, c4, c5, rowNum){
+    editable = true;
+    this.rowNum = rowNum;
+
+    this.c1.value = c1;
+    this.c2.value = c2;
+    this.c3.value = c3;
+    this.c4.value = c4;
+    this.c5.value = c5;
+
+    removeRow(rowNum);
+
+    showForm();
 }
 
 /**

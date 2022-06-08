@@ -29,6 +29,26 @@ head, body{
     font-size: 16px;
 }
 
+.edit, .delete{
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.edit{
+    left: 0;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAgUlEQVRIie2QOQqAMBAAh4j4FX2LlS8ypa9REB+nNrFwlYAHIptuB5YUS2ZCwNjxQJdSHmTUIxWwRoEgQRWcnM1bxF3vfcIDI1AAg0SWaB9+ek/58dJJIgA1MAOtlvyYHshlX2rL40iWSh5I8C0mN/kzSeVvARX5U0BNfhdQlRu3bPcActevpnJCAAAAAElFTkSuQmCC");
+    background-position: center;
+}
+
+.delete{
+    left: 25px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAo0lEQVRIieWTTQqDMBCFP6xb7yg9Qo/SHik3qUgXFlxWqGI3WYQ4Jc5I0NIHswnM+5lH4F9wAXpg9tP7NzVcQGIdFxIWFhcJzBk4D4Yb9vtfYzKpg2aDucWuJHDPLbAlwcJc9gQSTsAbfcEjUMZkUoIJeKi9Q+tFkgJg60Hc+SZg6UHc2S3BIQVUJ7J0oDJVAQPr/8DL76hwBp4ryDug1pL/Dj5MW2BhteGWuAAAAABJRU5ErkJggg==");
+    background-position: center;
+}
+
 .button:hover{
     background-color: #c5edc7;
 }

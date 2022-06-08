@@ -25,7 +25,7 @@
                 for(j = 0; j < 5; j++){
                     tempArray[j] = dataArray[j][i];
                 }
-                addAssembly(tempArray, false);
+                addAssembly(tempArray, false, -1);
             }
         });
 }
@@ -52,7 +52,7 @@ function addData(){
     c5.value = "";
 
     if(dataArray[0].length > 0)
-        addAssembly(dataArray, true);
+        addAssembly(dataArray, true, -1);
 }
 
     /**

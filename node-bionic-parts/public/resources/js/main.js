@@ -6,10 +6,10 @@ const table = window.document.getElementById("table");
    * @param {Array<number>} dataArray: The array by 
    * @param {Boolean} push 
    */
-async function addAssembly(dataArray, push){
+async function addAssembly(dataArray, push, rowNum){
 
     // Inserts the row to the end of the table, and adds cells in the right  order
-    var row = table.insertRow(-1);
+    var row = table.insertRow(rowNum);
     var actionCell = row.insertCell(0);
     var partNumberCell = row.insertCell(1);
     var typeCell = row.insertCell(2);
@@ -17,7 +17,9 @@ async function addAssembly(dataArray, push){
     var parentCell = row.insertCell(4);
     var statusCell = row.insertCell(5);
 
-    actionCell.innerHTML = editHTML;
+
+    createEditButton(actionCell, table.rows.length-1);
+    createDeleteButton(actionCell);
 
     // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];
@@ -25,6 +27,7 @@ async function addAssembly(dataArray, push){
     nameCell.innerHTML = dataArray[2];
     parentCell.innerHTML = dataArray[3];
     statusCell.innerHTML = dataArray[4]; 
+
 
     // If the method was called with the intent to push data to the data.json file
     if(push){
@@ -39,5 +42,15 @@ async function addAssembly(dataArray, push){
         // Posts the json file to the backend
         await postData("/part/add", tempJSON);
     }
+}
 
+
+function setEditable(rowNum){
+    console.log(table.rows[rowNum]);
+    row = table.rows[rowNum];
+    formSet(row.cells[1].innerHTML, row.cells[2].innerHTML, row.cells[3].innerHTML, row.cells[4].innerHTML, row.cells[5].innerHTML);
+}
+
+function removeRow(rowNum){
+    table.deleteRow(rowNum);
 }
