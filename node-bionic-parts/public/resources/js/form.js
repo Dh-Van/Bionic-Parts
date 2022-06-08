@@ -43,9 +43,19 @@ function fadeOut(){
     popup.style.animation = "fadeOut 0.4s forwards";
 }
 
+function fadeIn(){
+    overlay.style.animation = "fadeIn 0.4s forwards";
+    popup.style.animation = "fadeIn 0.4s forwards";
+}
+
 function removeForm(){
     popup.style.display = "none"; 
     overlay.style.display = "none";
+}
+
+function showForm(){
+    popup.style.display = "block"; 
+    overlay.style.display = "block";
 }
 
 function formSubmit(){
@@ -75,8 +85,8 @@ function formClear(){
 
 function popped(){
     setColor(TRANSPARENT_RED);
-    if(!isVisible) {popup.style.animation = "fadeIn 0.4s both"; overlay.style.animation = "fadeIn 0.4s both";};
-    // else if(isVisible) {popup.style.transition = "visibility 0s 2s, opacity 0.4s linear";} //popup.style.display = "none"; overlay.style.display = "none";
+    fadeIn();
+    showForm();
 
     isVisible = !isVisible
 }
