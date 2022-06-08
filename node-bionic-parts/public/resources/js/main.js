@@ -17,6 +17,8 @@ async function addAssembly(dataArray, push){
     var parentCell = row.insertCell(4);
     var statusCell = row.insertCell(5);
 
+    actionCell.innerHTML = editHTML;
+
     // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];
     typeCell.innerHTML = dataArray[1];
