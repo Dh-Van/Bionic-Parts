@@ -10,11 +10,12 @@ async function addAssembly(dataArray, push){
 
     // Inserts the row to the end of the table, and adds cells in the right  order
     var row = table.insertRow(-1);
-    var partNumberCell = row.insertCell(0);
-    var typeCell = row.insertCell(1);
-    var nameCell = row.insertCell(2);
-    var parentCell = row.insertCell(3);
-    var statusCell = row.insertCell(4);
+    var actionCell = row.insertCell(0);
+    var partNumberCell = row.insertCell(1);
+    var typeCell = row.insertCell(2);
+    var nameCell = row.insertCell(3);
+    var parentCell = row.insertCell(4);
+    var statusCell = row.insertCell(5);
 
     // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];

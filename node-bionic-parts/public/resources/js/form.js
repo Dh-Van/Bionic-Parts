@@ -38,16 +38,18 @@ function setColor(color){
  * Makes the Overlay and Popup content fade IN
  */
 function fadeOut(){
-    overlay.style.animation = "fadeOut 0.4s forwards";
-    popup.style.animation = "fadeOut 0.4s forwards";
+    fadeIn();
+    overlay.classList.toggle("fadeOut");
+    popup.classList.toggle("fadeOut");
 }
 
 /**
  * Makes the Overlay and Popup content fade OUT
  */
 function fadeIn(){
-    overlay.style.animation = "fadeIn 0.4s forwards";
-    popup.style.animation = "fadeIn 0.4s forwards";
+    fadeOut();
+    overlay.classList.toggle("fadeIn");
+    popup.classList.toggle("fadeIn");
 }
 
 /**
@@ -62,7 +64,7 @@ function hideForm(){
  * SHOWS the form on the screen
  */
 function showForm(){
-    popup.style.display = "block"; 
+    popup.style.display = "block";
     overlay.style.display = "block";
 }
 
@@ -71,7 +73,6 @@ function showForm(){
  */
 function displayForm(){
     setColor(TRANSPARENT_RED);
-    fadeIn();
     showForm();
 }
 
@@ -103,7 +104,7 @@ function formClear(){
  * Makes the form fade out, and then stops showing the form
  */
 function formCancel(){
-    fadeOut().then(hideForm());
+    hideForm();
 }
 
 /**

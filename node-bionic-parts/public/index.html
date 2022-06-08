@@ -21,11 +21,14 @@
         <div id="tableContainer">
             <table id = "table">
                 <tr>
-                    <tr> <th><div>Part Number</div>
-                        <th><div>Type</div>
-                        <th><div>Name</div>
-                        <th><div>Parent</div> 
-                        <th><div>Status</div> 
+                    <tr>
+                        <!-- Short: 10%, Mid: 16%, Long: 21% -->
+                        <th class = "short"><div>Action</div>
+                        <th class = "long"><div>Part Number</div>
+                        <th class = "mid"><div>Type</div>
+                        <th class = "long"><div>Name</div>
+                        <th class = "mid"><div>Parent</div> 
+                        <th class = "mid"><div>Status</div> 
                         </th>
                 </tr>
             </table>
@@ -68,13 +71,13 @@
                         <option value = "Assembly">Assembly</option>
                         <option value = "Done">Done</option>
                     </select> 
-                    <!-- Button to submit the form, will call the formSubmit() function in form.js -->
-                    <button id = "Submit" class = "button" onclick="formSubmit()">Submit</button>
-                    <!-- Button to cancel entry to the form, will call the formCancel() function in form.js -->
-                    <button id = "Cancel" class = "button" onclick = "formCancel()">Cancel</button>
-                    <!-- Button to clear ALL form fields, will call the formClear() functio in form.js -->
-                    <button id = "Clear" class = "button" onclick = "formClear()">Clear</button>
                 </form>
+                <!-- Button to submit the form, will call the formSubmit() function in form.js -->
+                <button id = "Submit" class = "button" onclick="formSubmit()">Submit</button>
+                <!-- Button to cancel entry to the form, will call the formCancel() function in form.js -->
+                <button id = "Cancel" class = "button" onclick = "formCancel()">Cancel</button>
+                <!-- Button to clear ALL form fields, will call the formClear() functio in form.js -->
+                <button id = "Clear" class = "button" onclick = "formClear()">Clear</button>
             </div>    
         </div>
 
