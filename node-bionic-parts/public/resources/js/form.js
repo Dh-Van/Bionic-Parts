@@ -88,10 +88,10 @@ function formSubmit(){
     else {
         if(editable){
             editable = false;
-            addAssembly(rowNum);
+            addData(rowNum);
             rowNum = -1;
         } else {
-        addData();
+        addData(-1);
         formCancel();
         }
     }
@@ -110,6 +110,8 @@ function formClear(){
 }
 
 function formSet(c1, c2, c3, c4, c5, rowNum){
+    removeRow(rowNum);
+
     editable = true;
     this.rowNum = rowNum;
 
@@ -118,8 +120,6 @@ function formSet(c1, c2, c3, c4, c5, rowNum){
     this.c3.value = c3;
     this.c4.value = c4;
     this.c5.value = c5;
-
-    removeRow(rowNum);
 
     showForm();
 }

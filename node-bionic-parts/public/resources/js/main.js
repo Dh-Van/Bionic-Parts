@@ -47,10 +47,12 @@ async function addAssembly(dataArray, push, rowNum){
 
 function setEditable(rowNum){
     console.log(table.rows[rowNum]);
-    row = table.rows[rowNum];
-    formSet(row.cells[1].innerHTML, row.cells[2].innerHTML, row.cells[3].innerHTML, row.cells[4].innerHTML, row.cells[5].innerHTML);
+    table.deleteRow(rowNum);
+    jsonRemoveRow(rowNum);
 }
 
 function removeRow(rowNum){
-    table.deleteRow(rowNum);
+    
+
+    // table.deleteRow(rowNum + 1);
 }

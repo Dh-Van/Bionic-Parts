@@ -18,7 +18,6 @@
             
             // Turns the data which is stored by column, into data stored by row so that the addAssembly method works
             for(i = 0; i < dataArray[0].length; i++){
-                console.log("this can't be breaking everything right?")
                 // Array to store the data by row
                 var tempArray = [];
                 // Loops through each column, and gets the same index, essentially getting the first row
@@ -36,7 +35,7 @@ addJSONdata();
 /**
  * Function that adds the data from the current row of the table to the json file
  */
-function addData(){
+function addData(rowNum){
     var dataArray = [[], [], [], [], []];
 
     dataArray[0] = c1.value;
@@ -52,25 +51,43 @@ function addData(){
     c5.value = "";
 
     if(dataArray[0].length > 0)
-        addAssembly(dataArray, true, -1);
+        addAssembly(dataArray, true, rowNum);
 }
 
-    /**
-     * 
-     * @param url: The url to post the json to
-     * @param data: The json to post
-     */
-    async function postData(url = '', data = {}) {
-        const response = await fetch(url, {
-            method: 'POST',
-            cache: 'no-cache',
-            credentials: 'same-origin', 
-            headers: {
-            'Content-Type': 'application/json'
-            
-            }, 
-            referrerPolicy: 'no-referrer', 
-            body: JSON.stringify(data) 
-        });
-        return response.json(); // parses JSON response into native JavaScript objects
-    }
+/**
+ * 
+ * @param url: The url to post the json to
+ * @param data: The json to post
+ */
+async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+        'Content-Type': 'application/json'
+        
+        }, 
+        referrerPolicy: 'no-referrer', 
+        body: JSON.stringify(data) 
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+async function jsonRemoveRow(rowNum){
+    var json = await returnJSON();
+
+    json.c1.splice(0, 1);
+    json.c2.splice(0, 1);
+    json.c3.splice(0, 1);
+    json.c4.splice(0, 1);
+    json.c5.splice(0, 1);
+
+    var response = await postData("/json/overwrite", json);
+    addJSONdata();
+
+}
+
+async function returnJSON(){
+    return await fetch('/json/get').then(response => response.json());
+}

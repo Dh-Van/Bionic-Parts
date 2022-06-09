@@ -32,9 +32,16 @@ app.post('/part/add', function (req, res) {
     fs.writeFileSync('public/resources/data/data.json', JSON.stringify(json));
 })
 
+app.post('/json/overwrite', function (req, res) {
+    var json = req.body;
+    console.log(json);
+    fs.writeFileSync('public/resources/data/data.json', JSON.stringify(json));
+})
+
 // Returns the data.json file when requested. 
 app.get('/json/get', function(req, res){
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');
     var json = JSON.parse(jsonRaw);
+    console.log(json);
     res.send(json);
 })
