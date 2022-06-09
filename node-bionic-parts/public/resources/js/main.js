@@ -19,7 +19,7 @@ async function addAssembly(dataArray, push, rowNum){
 
 
     createEditButton(actionCell, table.rows.length-1);
-    createDeleteButton(actionCell);
+    createDeleteButton(actionCell, table.rows.length-1);
 
     // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];
@@ -45,14 +45,13 @@ async function addAssembly(dataArray, push, rowNum){
 }
 
 
-function setEditable(rowNum){
-    console.log(table.rows[rowNum]);
-    table.deleteRow(rowNum);
-    jsonRemoveRow(rowNum);
+function editRow(rowNum){
+    var row = table.rows[rowNum];
+    console.log(row.cells[1].innerHTML);
+    formSet(row.cells[1].innerHTML, row.cells[2].innerHTML, row.cells[3].innerHTML, row.cells[4].innerHTML, row.cells[5].innerHTML ,rowNum)
 }
 
 function removeRow(rowNum){
-    
-
-    // table.deleteRow(rowNum + 1);
+    table.deleteRow(rowNum);
+    jsonRemoveRow(rowNum);
 }

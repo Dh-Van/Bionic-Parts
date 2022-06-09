@@ -4,10 +4,11 @@ const popup = document.getElementById("popup");
 const overlay = document.getElementById("overlay");
 
 let editable = false;
-let rowNum = -1;
+let row = 0;
 
 const LIGHT_GREEN = "#c5edc7" ;
 const TRANSPARENT_RED = "rgba(255, 0, 0, .5)"
+let currData = [[], [], [], [], []];
 
 // Columns of the form
 const c1 = document.getElementById("c1")
@@ -88,8 +89,9 @@ function formSubmit(){
     else {
         if(editable){
             editable = false;
-            addData(rowNum);
-            rowNum = -1;
+            addData(row);
+            removeRow(row);
+            row = -1;
         } else {
         addData(-1);
         formCancel();
@@ -109,18 +111,17 @@ function formClear(){
     setColor(TRANSPARENT_RED);
 }
 
-function formSet(c1, c2, c3, c4, c5, rowNum){
-    removeRow(rowNum);
-
+function formSet(col1, col2, col3, col4, col5, rowNum){
     editable = true;
-    this.rowNum = rowNum;
+    row = rowNum;
 
-    this.c1.value = c1;
-    this.c2.value = c2;
-    this.c3.value = c3;
-    this.c4.value = c4;
-    this.c5.value = c5;
+    c1.value = col1;
+    c2.value = col2;
+    c3.value = col3;
+    c4.value = col4;
+    c5.value = col5;
 
+    setColor(LIGHT_GREEN);
     showForm();
 }
 
