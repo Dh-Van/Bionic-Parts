@@ -36,22 +36,25 @@ addJSONdata();
  * Function that adds the data from the current row of the table to the json file
  */
 function addData(rowNum){
+    // Temp array to store data
     var dataArray = [[], [], [], [], []];
 
+    // Sets indices of the tempArray to the values of the respective columns
     dataArray[0] = c1.value;
     dataArray[1] = c2.value;
     dataArray[2] = c3.value;
     dataArray[3] = c4.value;
     dataArray[4] = c5.value;
 
+    // Resets the values of the columns back to nothing
     c1.value = "";
     c2.value = "";
     c3.value = "";
     c4.value = "";
     c5.value = "";
 
-    if(dataArray[0].length > 0)
-        addAssembly(dataArray, true, rowNum);
+    // Adds the row with the temp array passed in
+    addAssembly(dataArray, true, rowNum);
 }
 
 /**
@@ -74,14 +77,18 @@ async function postData(url = '', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
+/**
+ * Removes the passed in row from the json columns, and then requests the backend to rewrite the new json ontop of the old json
+ * @param {number} rowNum 
+ */
 async function jsonRemoveRow(rowNum){
     var json = await returnJSON();
 
-    json.c1.splice(0, 1);
-    json.c2.splice(0, 1);
-    json.c3.splice(0, 1);
-    json.c4.splice(0, 1);
-    json.c5.splice(0, 1);
+    json.c1.splice(rowNum, 1);
+    json.c2.splice(rowNum, 1);
+    json.c3.splice(rowNum, 1);
+    json.c4.splice(rowNum, 1);
+    json.c5.splice(rowNum, 1);
 
     var response = await postData("/json/overwrite", json);
     addJSONdata();

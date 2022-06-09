@@ -11,7 +11,8 @@ function createDeleteButton(actionCell, currRow){
     var editButton = document.createElement("button");
     editButton.type = "button";
     editButton.className = "delete";
-    editButton.setAttribute("onClick",  `removeRow(${currRow})`);
+    editButton.setAttribute("onClick",`removeRow(${currRow})`);
+    editButton.setAttribute("data-row", currRow - 1);
 
     actionCell.appendChild(editButton);
 }

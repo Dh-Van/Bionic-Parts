@@ -21,7 +21,6 @@ for(i = 0; i < jsonData[0].length; i++){
     for(j = 0; j < 5; j++){
         dataArray[j] = jsonData[j][i];
     }
-    console.log(dataArray)
     addAssembly(dataArray, false);
 }
 
@@ -45,10 +44,6 @@ function addAssembly(dataArray, push){
         data.c2.push(typeCell.innerHTML);
         data.c3.push(nameCell.innerHTML);
         data.c4.push(parentCell.innerHTML);
-        data.c5.push(statusCell.innerHTML);
-
-        
-        
-        console.log(data);
+        data.c5.push(statusCell.innerHTML);        
     }
 }

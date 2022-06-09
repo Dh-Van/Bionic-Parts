@@ -19,7 +19,7 @@ app.listen(port, function () {
 app.use(express.static('public'));
 
 // Adds the data to the data.json file, when called by the frontent
-app.post('/part/add', function (req, res) {
+app.post('/add', function (req, res) {
     var data = req.body;
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');
     var json = JSON.parse(jsonRaw);
@@ -32,9 +32,9 @@ app.post('/part/add', function (req, res) {
     fs.writeFileSync('public/resources/data/data.json', JSON.stringify(json));
 })
 
+// Rewrites the current json file with the passed in json file
 app.post('/json/overwrite', function (req, res) {
     var json = req.body;
-    console.log(json);
     fs.writeFileSync('public/resources/data/data.json', JSON.stringify(json));
 })
 
@@ -42,6 +42,5 @@ app.post('/json/overwrite', function (req, res) {
 app.get('/json/get', function(req, res){
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');
     var json = JSON.parse(jsonRaw);
-    console.log(json);
     res.send(json);
 })

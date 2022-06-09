@@ -17,6 +17,5 @@ res.sendFile(path.join(__dirname, '/index.html'))
 
 app.post('/num', function (req, res) {
 var num = req.body.value
-console.log(num)
 return res.end('done')
 })
