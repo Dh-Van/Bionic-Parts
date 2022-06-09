@@ -35,7 +35,7 @@
         </div>
 
         <!-- Overlay which will cover the whole screen, and make the background a transparent black -->
-        <div id="overlay">
+        <div class="overlay" id = "popupOverlay">
             <!-- Popup content which will contain the form to input data into the form -->
             <div id = "popup">
                 <!-- Text that informs the user what to do -->
@@ -78,9 +78,18 @@
                 <button id = "Cancel" class = "button" onclick = "formCancel()">Cancel</button>
                 <!-- Button to clear ALL form fields, will call the formClear() functio in form.js -->
                 <button id = "Clear" class = "button" onclick = "formClear()">Clear</button>
-            </div>    
+            </div>
         </div>
 
+        <div class="overlay" id="confirmOverlay">
+            <div id="confirmation">
+                <button id = "Confirm" class = "button" onclick = "">CONFIRM</button>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="resources/js/update.js"></script>
         <script type = "text/javascript" language = "javascript" src = "resources/js/action.js"></script>
         <script type = "text/javascript" language = "javascript" src = "resources/js/main.js"></script>
         <script type = "text/javascript" language = "javascript" src = "resources/js/form.js"></script>

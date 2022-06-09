@@ -21,11 +21,11 @@ for(i = 0; i < jsonData[0].length; i++){
     for(j = 0; j < 5; j++){
         dataArray[j] = jsonData[j][i];
     }
-    addAssembly(dataArray, false);
+    addAssembly(dataArray, false, table);
 }
 
-function addAssembly(dataArray, push){
-    var row = table.insertRow(-1);
+function addAssembly(dataArray, push, t){
+    var row = t.insertRow(-1);
     var partNumberCell = row.insertCell(0);
     var typeCell = row.insertCell(1);
     var nameCell = row.insertCell(2);

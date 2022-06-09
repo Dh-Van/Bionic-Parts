@@ -1,1 +1,7 @@
-{"c1":["4909-23-A-0000"],"c2":["Assembly"],"c3":["Main Assembly"],"c4":["Robot"],"c5":["Maunfacutring in progress"]}
+{
+    "c1":["4909-23-A-0000","4909-23-A-0100","4909-23-P-0101","4909-23-A-0200","4909-23-P-0201, 4909-23-A-0000","4909-23-A-0100","4909-23-P-0101","4909-23-A-0200","4909-23-P-0201, 4909-23-A-0000","4909-23-A-0100","4909-23-P-0101","4909-23-A-0200","4909-23-P-0201"],
+    "c2":["Assembly","Assembly","Part","Assembly","Part, Assembly","Assembly","Part","Assembly","Part, Assembly","Assembly","Part","Assembly","Part"],
+    "c3":["Main Assembly","Climber","Upper Bearing Block","Left Static Hook","Small Axle, Main Assembly","Climber","Upper Bearing Block","Left Static Hook","Small Axle, Main Assembly","Climber","Upper Bearing Block","Left Static Hook","Small Axle"],
+    "c4":["Robot","Robot","Climber","Climber","Left Static Hook, Robot","Robot","Climber","Climber","Left Static Hook, Robot","Robot","Climber","Climber","Left Static Hook"],
+    "c5":["Maunfacutring in progress","CAM in progress","Done","Maunfacutring in progress","Assembly, Maunfacutring in progress","CAM in progress","Done","Maunfacutring in progress","Assembly, Maunfacutring in progress","CAM in progress","Done","Maunfacutring in progress","Assembly"]
+}

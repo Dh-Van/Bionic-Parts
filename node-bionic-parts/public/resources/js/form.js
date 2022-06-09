@@ -1,7 +1,7 @@
 // The popup content
 const popup = document.getElementById("popup");
 // The background when the popup is displayed
-const overlay = document.getElementById("overlay");
+const overlay = document.getElementById("popupOverlay");
 
 let editable = false;
 let row = 0;

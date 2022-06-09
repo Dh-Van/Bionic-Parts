@@ -1,15 +1,17 @@
 // The HTML table that will display information
-const table = window.document.getElementById("table");
+var table = window.document.getElementById("table");
+
+var removeQueue = [];
 
   /**
    * Function that will add an assembly onto the html table, and depending on the push boolean, add the data in dataArray to the data.json file
    * @param {Array<number>} dataArray: The array by 
    * @param {Boolean} push 
    */
-async function addAssembly(dataArray, push, rowNum){
+async function addAssembly(dataArray, push, rowNum, t = table){
 
     // Inserts the row to the end of the table, and adds cells in the right  order
-    var row = table.insertRow(rowNum);
+    var row = t.insertRow(rowNum);
     var actionCell = row.insertCell(0);
     var partNumberCell = row.insertCell(1);
     var typeCell = row.insertCell(2);
@@ -17,8 +19,8 @@ async function addAssembly(dataArray, push, rowNum){
     var parentCell = row.insertCell(4);
     var statusCell = row.insertCell(5);
 
-    createEditButton(actionCell, table.rows.length-1);
-    createDeleteButton(actionCell, table.rows.length-1);
+    createEditButton(actionCell, table.rows.length - 2);
+    createDeleteButton(actionCell, table.rows.length - 2);
 
     // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];
@@ -57,22 +59,40 @@ function editRow(rowNum){
  * @param {number} rowNum 
  */
 function removeRow(rowNum){
-    console.log(rowNum);
-    rowNum = 1;
-    table.deleteRow(rowNum);
-    jsonRemoveRow(rowNum);
+    if(confirmed()){
+        removeQueue.push(rowNum - 1);
+        removeFromJSON();
 
-    buttonList = document.getElementsByClassName("delete");
+        buttonList = document.getElementsByClassName("delete");
+        table.deleteRow(rowNum + 1);
+        
+        for(i = 0; i < buttonList.length; i++){
+            var row = buttonList[i].getAttribute("data-row");
+            if(row > rowNum)
+                buttonList[i].setAttribute("data-row", --row);
 
-    console.log(buttonList);
+            buttonList[i].setAttribute("onClick",`removeRow(${row})`);
 
-    for(i = 0; i < buttonList.length; i++){
-        row = buttonList[i].getAttribute("data-row");
-
-        if(rowNum <= row) {
-            row -= 1;
-            buttonList[i].setAttribute("data-row", row -1);
-            buttonList[i].setAttribute("onClick", `removeRow(${row})`);
         }
+        
+        removeFromJSON();
     }
+}
+
+/**
+ * Removes all elements present in removeQueue from the json, done to avoid delete calls not happening because of simultaneous method clallls
+ */
+function removeFromJSON(){
+    console.log("in met");
+    for(i = 0; i < removeQueue.length; i++){
+        jsonRemoveRow(i);
+        removeQueue.splice(i, 1);
+    }
+}
+
+/**
+ * Deletes all rows of the table besides the top header row
+ */
+function clearTable(t){
+    while(t.rows.length > 2) t.deleteRow(2);
 }

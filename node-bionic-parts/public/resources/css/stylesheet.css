@@ -136,7 +136,7 @@ tr:hover{
     background-color: #c5edc7;
 }
 
-#overlay{
+.overlay{
 
     display: none;
     /* visibility: hidden; */
@@ -261,5 +261,9 @@ input:focus, select:focus {
     bottom: 5%;
     left: 75%;
     transform: translateX(-50%); 
+}
+
+#confirmation{
+    display: none;
 }
   

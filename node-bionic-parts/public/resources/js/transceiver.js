@@ -1,7 +1,7 @@
 /**
  * Function that will load the json data present in the data.json file by calling the addAssembly method
  */
- async function addJSONdata(){
+ async function addJSONdata(t = table){
     // Data Array to store all of the data [by column] that is in the data.json file
     var dataArray = [[], [], [], [], []];
 
@@ -15,7 +15,7 @@
             dataArray[2] = data.c3;
             dataArray[3] = data.c4;
             dataArray[4] = data.c5;
-            
+
             // Turns the data which is stored by column, into data stored by row so that the addAssembly method works
             for(i = 0; i < dataArray[0].length; i++){
                 // Array to store the data by row
@@ -24,7 +24,7 @@
                 for(j = 0; j < 5; j++){
                     tempArray[j] = dataArray[j][i];
                 }
-                addAssembly(tempArray, false, -1);
+                addAssembly(tempArray, false, -1, t);
             }
         });
 }
@@ -91,8 +91,6 @@ async function jsonRemoveRow(rowNum){
     json.c5.splice(rowNum, 1);
 
     var response = await postData("/json/overwrite", json);
-    addJSONdata();
-
 }
 
 async function returnJSON(){
