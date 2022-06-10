@@ -68,6 +68,7 @@ function hideForm(){
  * SHOWS the form on the screen
  */
 function showForm(){
+    console.log("why no form?")
     popup.style.display = "block";
     overlay.style.display = "block";
 }

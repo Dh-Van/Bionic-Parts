@@ -15,8 +15,8 @@
         </div>
 
         <!-- Button to ADD an assembly or part to the table, this will call the displatForm() method in form.js -->
-        <button id = "Add" class = "button" onclick="displayForm()">Add</button>
-
+        <button id = "Add" class = "button" onclick = "displayForm()">Add</button>
+ 
         <!-- Table which will display all of the different types of data, one part or assembly per row -->
         <div id="tableContainer">
             <table id = "table">
@@ -83,14 +83,16 @@
 
         <div class="overlay" id="confirmOverlay">
             <div id="confirmation">
-                <button id = "Confirm" class = "button" onclick = "">CONFIRM</button>
+                <p id = "confirmText">Would you like to delete this row?</p>
+                <button id = "Confirm" class = "button">CONFIRM</button>
+                <button id = "CancelConfirm" class = "button" onclick = "hideConfirm()">CANCEL</button>
             </div>
         </div>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="resources/js/update.js"></script>
+
         <script type = "text/javascript" language = "javascript" src = "resources/js/action.js"></script>
+        <script type = "text/javascript" language = "javascript" src = "resources/js/confirmation.js"></script>
         <script type = "text/javascript" language = "javascript" src = "resources/js/main.js"></script>
         <script type = "text/javascript" language = "javascript" src = "resources/js/form.js"></script>
         <script type = "text/javascript" language = "javascript" src = "resources/js/transceiver.js"></script>

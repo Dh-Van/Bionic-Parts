@@ -59,24 +59,23 @@ function editRow(rowNum){
  * @param {number} rowNum 
  */
 function removeRow(rowNum){
-    if(confirmed()){
-        removeQueue.push(rowNum - 1);
-        removeFromJSON();
+    removeQueue.push(rowNum - 1);
+    removeFromJSON();
 
-        buttonList = document.getElementsByClassName("delete");
-        table.deleteRow(rowNum + 1);
-        
-        for(i = 0; i < buttonList.length; i++){
-            var row = buttonList[i].getAttribute("data-row");
-            if(row > rowNum)
-                buttonList[i].setAttribute("data-row", --row);
+    buttonList = document.getElementsByClassName("delete");
+    table.deleteRow(rowNum + 1);
+    
+    for(i = 0; i < buttonList.length; i++){
+        var row = buttonList[i].getAttribute("data-row");
+        if(row > rowNum)
+            buttonList[i].setAttribute("data-row", --row);
 
-            buttonList[i].setAttribute("onClick",`removeRow(${row})`);
+        buttonList[i].setAttribute("onClick",`popupConfirm(${row})`);
 
-        }
-        
-        removeFromJSON();
     }
+    
+    removeFromJSON();
+    hideConfirm();
 }
 
 /**

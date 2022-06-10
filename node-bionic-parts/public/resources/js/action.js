@@ -13,7 +13,19 @@ function createDeleteButton(actionCell, currRow){
     editButton.className = "delete";
     editButton.setAttribute("data-row", currRow);
 
-    editButton.setAttribute("onClick",`removeRow(${editButton.getAttribute("data-row")})`);
+    editButton.setAttribute("onClick",`popupConfirm(${editButton.getAttribute("data-row")})`);
 
     actionCell.appendChild(editButton);
 }
+
+// CALEB CODE: 
+// Coding letters I am goood at this 
+// function beCool(yourmom)
+// {
+//     int hello =+ yourmom; 
+//     for(int i = 0; i < 10; i =+1)
+//     {
+//         hello += yourmom;
+//     }
+//     return yourmom;
+// }
