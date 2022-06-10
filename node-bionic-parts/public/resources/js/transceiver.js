@@ -93,6 +93,10 @@ async function jsonRemoveRow(rowNum){
     var response = await postData("/json/overwrite", json);
 }
 
+async function jsonEdit(addJSON, rowNum){
+    await fetch("/json/edit", addJSON);
+}
+
 async function returnJSON(){
     return await fetch('/json/get').then(response => response.json());
 }

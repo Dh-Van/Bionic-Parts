@@ -38,6 +38,18 @@ app.post('/json/overwrite', function (req, res) {
     fs.writeFileSync('public/resources/data/data.json', JSON.stringify(json));
 })
 
+app.post('/json/edit', function (req, res, index)){
+    var jsonRaw = fs.readFileSync('public/resources/data/data.json');
+    var json = JSON.parse(jsonRaw);
+    var addJSON = req.body;
+
+    json.c1[index] = addJSON.c1[index];
+    json.c2[index] = addJSON.c2[index];
+    json.c3[index] = addJSON.c3[index];
+    json.c4[index] = addJSON.c4[index];
+    json.c5[index] = addJSON.c5[index];
+}
+
 // Returns the data.json file when requested. 
 app.get('/json/get', function(req, res){
     var jsonRaw = fs.readFileSync('public/resources/data/data.json');

@@ -90,12 +90,12 @@ function formSubmit(){
     else {
         if(editable){
             editable = false;
-            addData(row);
             removeRow(row);
             row = -1;
+            formCancel();
         } else {
-        addData(-1);
-        formCancel();
+            addData(-1);
+            formCancel();
         }
     }
 }
