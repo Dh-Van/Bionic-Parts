@@ -107,6 +107,7 @@ head, body{
     text-align: center;
 }
 
+
 table tbody tr {
     transition: 0.4s;
 }
@@ -134,6 +135,21 @@ th, td{
 
 tr:hover{
     background-color: #c5edc7;
+}
+
+.head{
+    border-collapse: separate;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+#tableHead{
+    
+    background: #4CAF50;
+    position: sticky;
+    top: 0px;
 }
 
 .overlay{
