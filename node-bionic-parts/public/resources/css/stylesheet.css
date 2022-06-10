@@ -107,6 +107,20 @@ head, body{
     text-align: center;
 }
 
+.head{
+    background: #154733;
+    color: white;
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: inset 0 -1px 0 white, inset 0 -1px 0 white;
+}
+
+#tableHead{
+    
+    background: #4CAF50;
+    position: sticky;
+    top: 0px;
+}
 
 table tbody tr {
     transition: 0.4s;
@@ -135,19 +149,6 @@ th, td{
 
 tr:hover{
     background-color: #c5edc7;
-}
-
-.head{
-    border-top: none !important;
-    border-bottom: none !important;
-    box-shadow: inset 0 -1px 0 white, inset 0 -1px 0 white;
-}
-
-#tableHead{
-    
-    background: #4CAF50;
-    position: sticky;
-    top: 0px;
 }
 
 .overlay{

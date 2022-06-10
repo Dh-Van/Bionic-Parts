@@ -19,8 +19,8 @@ async function addAssembly(dataArray, push, rowNum, t = table){
     var parentCell = row.insertCell(4);
     var statusCell = row.insertCell(5);
 
-    createEditButton(actionCell, table.rows.length - 2);
-    createDeleteButton(actionCell, table.rows.length - 2);
+    createEditButton(actionCell, table.rows.length - 1);
+    createDeleteButton(actionCell, table.rows.length - 1);
 
     // Sets the data inside the cell to the respective dataArray index
     partNumberCell.innerHTML = dataArray[0];
@@ -63,7 +63,7 @@ function removeRow(rowNum){
     removeFromJSON();
 
     buttonList = document.getElementsByClassName("delete");
-    table.deleteRow(rowNum + 1);
+    table.deleteRow(rowNum);
     
     for(i = 0; i < buttonList.length; i++){
         var row = buttonList[i].getAttribute("data-row");
